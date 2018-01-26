@@ -28,6 +28,19 @@ class Calculator {
     func add(lhs: (Int, Int), rhs: (Int, Int) )-> (Int, Int) {
         return (lhs.0 + rhs.0, lhs.1 + rhs.1)
     }
+    
+   func add(lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
+        var finalVal = [String: Int]()
+            for (stringL, numL) in lhs {
+                for (stringR, numR) in rhs {
+                    if (stringR == stringL) {
+                        finalVal[stringR] = numL + numR
+                    }
+                }
+            }
+        return finalVal
+    }
+    
 //subtract functions
     func subtract (lhs: Int, rhs: Int) -> Int {
         return lhs - rhs
@@ -35,6 +48,18 @@ class Calculator {
     
     func subtract(lhs: (Int, Int), rhs: (Int, Int) )-> (Int, Int) {
         return (lhs.0 - rhs.0, lhs.1 - rhs.1)
+    }
+    
+    func subtract(lhs: [String: Int], rhs: [String: Int]) -> [String: Int] {
+        var finalVal = [String: Int]()
+        for (stringL, numL) in lhs {
+            for (stringR, numR) in rhs {
+                if (stringR == stringL) {
+                    finalVal[stringR] = numL - numR
+                }
+            }
+        }
+        return finalVal
     }
 //multiply functions
     func multiply (lhs: Int, rhs: Int) -> Int {
@@ -68,4 +93,9 @@ class Calculator {
         }
         return sum / args.count
     }
+//MathOp
+    func mathOp(lhs : Int, rhs : Int, op : (Int, Int) -> Int) -> Int {
+        return op(lhs, rhs)
+    }
+
 }

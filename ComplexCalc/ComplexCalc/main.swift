@@ -21,8 +21,8 @@ assert(calc.subtract(lhs: 2, rhs: 2) == 0)
 assert(calc.multiply(lhs: 2, rhs: 2) == 4)
 assert(calc.divide(lhs: 2, rhs: 2) == 1)
 //
-//assert(calc.mathOp(lhs: 5, rhs: 5, op: { ($0 + $1) + ($0 * $1) }) == 35)
-//assert(calc.mathOp(lhs: 10, rhs: -5, op: { ($0 + $1) + ($0 - $1) }) == 20)
+assert(calc.mathOp(lhs: 5, rhs: 5, op: { ($0 + $1) + ($0 * $1) }) == 35)
+assert(calc.mathOp(lhs: 10, rhs: -5, op: { ($0 + $1) + ($0 - $1) }) == 20)
 //
 assert(calc.add([1, 2, 3, 4, 5]) == 15)
 assert(calc.multiply([1, 2, 3, 4, 5]) == 120)
@@ -48,8 +48,8 @@ assert(calc.subtract(lhs: p1, rhs: p2) == (-7, 32))
 assert(calc.add(lhs: p4, rhs: p4) == (0, 0))
 assert(calc.add(lhs: p3, rhs: p4) == (-4, 4))
 //
-//let pd1 = ["x": 5, "y": 5]
-//let pd2 = ["x": -4, "y": 4]
-//assert(calc.add(lhs: pd1, rhs: pd2) == ["x": 1, "y": 9])
-//assert(calc.subtract(lhs: pd1, rhs: pd2) == ["x": 9, "y": 1])
+let pd1 = ["x": 5, "y": 5]
+let pd2 = ["x": -4, "y": 4]
+assert(calc.add(lhs: pd1, rhs: pd2) == ["x": 1, "y": 9])
+assert(calc.subtract(lhs: pd1, rhs: pd2) == ["x": 9, "y": 1])
 //
