@@ -94,8 +94,26 @@ class Calculator {
         return sum / args.count
     }
 //MathOp
+    //assert(calc.mathOp(lhs: 5, rhs: 5, op: { ($0 + $1) + ($0 * $1) }) == 35)
     func mathOp(lhs : Int, rhs : Int, op : (Int, Int) -> Int) -> Int {
         return op(lhs, rhs)
     }
-
+    
+    //assert(calc.mathOp(args: [1, 2, 3], beg: 0, op: { $0 + $1 }) == 6)
+    //    // this is (((0 op 1) op 2) op 3)
+    //assert(calc.mathOp(args: [1, 2, 3, 4, 5], beg: 0, op: { $0 + $1 }) == 15)
+    //    // this is (((((0 op 1) op 2) op 3) op 4) op 5)
+    //assert(calc.mathOp(args: [1, 1, 1, 1, 1], beg: 1, op: { $0 * $1 }) == 1)
+    //    // this is (((((1 op 1) op 1) op 1) op 1) op 1)
+    
+    func mathOp(args: [Int], beg: Int, op : (Int, Int) -> Int) -> Int {
+        var finalVal = 0
+        var i = 1
+        finalVal = op(beg, args[0])
+        while i <= (args.count - 1) {
+            finalVal = op(finalVal, args[i])
+            i += 1
+        }
+        return finalVal
+    }
 }
